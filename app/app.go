@@ -28,7 +28,7 @@ func Run() {
 	loggedRouter := handlers.LoggingHandler(os.Stdout, appRouter.Router)
 	addr := fmt.Sprintf("%s:%d", appState.Config.AppListenIP, appState.Config.AppListenPort)
 
-	fmt.Printf("Starting web server on http://%s\n", addr)
+	log.Printf("Starting web server on http://%s\n", addr)
 	err := http.ListenAndServe(addr, handlers.RecoveryHandler()(loggedRouter))
 
 	if err != nil {
