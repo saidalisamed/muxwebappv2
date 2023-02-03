@@ -1,0 +1,13 @@
+app:
+  title: My Website
+  listen_ip: 127.0.0.1
+  listen_port: 8080
+  secret: 32wgr0a9jioqgarq-ef90
+database:
+  username: root
+  password: root
+  name: testdb
+  host: 127.0.0.1
+  port: 3306
+
+
