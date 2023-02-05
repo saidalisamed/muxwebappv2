@@ -29,7 +29,7 @@ func Run() {
 	addr := fmt.Sprintf("%s:%d", appState.Config.AppListenIP, appState.Config.AppListenPort)
 
 	log.Printf("Starting web server on http://%s\n", addr)
-	err := http.ListenAndServe(addr, handlers.RecoveryHandler()(loggedRouter))
+	err := http.ListenAndServe(addr, handlers.RecoveryHandler()(handlers.ProxyHeaders(loggedRouter)))
 
 	if err != nil {
 		log.Println(err)
