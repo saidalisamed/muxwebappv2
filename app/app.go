@@ -17,12 +17,12 @@ import (
 var appConfig = config.ReadConfig()
 
 var appState = &state.AppState{
-	DB:       db.NewManager(appConfig.DBUsername, appConfig.DBPassword, appConfig.DBHost, appConfig.DBName, appConfig.DBPort),
+	DB:       db.New(appConfig.DBUsername, appConfig.DBPassword, appConfig.DBHost, appConfig.DBName, appConfig.DBPort),
 	Sessions: sessions.NewCookieStore([]byte(appConfig.AppSecret)),
 	Config:   appConfig,
 }
 
-var appRouter = router.NewRouter(appState)
+var appRouter = router.New(appState)
 
 func Run() {
 	loggedRouter := handlers.LoggingHandler(os.Stdout, appRouter.Router)

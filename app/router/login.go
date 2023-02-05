@@ -5,7 +5,6 @@ import (
 	"net/http"
 )
 
-// LoginHandler is a function that serves the "/login" route.
 func (ar *AppRouter) loginHandler(w http.ResponseWriter, r *http.Request) {
 	session, _ := ar.State.Sessions.Get(r, "session")
 

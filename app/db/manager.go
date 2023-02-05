@@ -20,7 +20,7 @@ func newDbConnection(username, password, host, DBName string, port int) *sql.DB 
 	return db
 }
 
-func NewManager(username, password, host, DBName string, port int) *Manager {
+func New(username, password, host, DBName string, port int) *Manager {
 	return &Manager{
 		db: newDbConnection(username, password, host, DBName, port),
 	}

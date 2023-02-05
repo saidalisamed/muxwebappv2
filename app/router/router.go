@@ -15,7 +15,7 @@ type AppRouter struct {
 	Router    *mux.Router
 }
 
-func NewRouter(appState *state.AppState) *AppRouter {
+func New(appState *state.AppState) *AppRouter {
 	ar := &AppRouter{}
 	ar.State = appState
 	ar.Router = mux.NewRouter()
@@ -27,6 +27,7 @@ func NewRouter(appState *state.AppState) *AppRouter {
 
 func (ar *AppRouter) setupRoutes() {
 	ar.Router.HandleFunc("/", ar.homeHandler)
+	ar.Router.HandleFunc("/users", ar.usersHandler)
 	ar.Router.HandleFunc("/login", ar.loginHandler)
 }
 
